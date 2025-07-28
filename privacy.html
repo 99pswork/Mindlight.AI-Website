@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mindlight.AI | Mental Health Care Innovation</title>
+    <style>
+      :root {
+        --primary: #ecd2bd;
+        --secondary: #d1a78f; /* A slightly darker shade for contrast */
+        --dark: #5a4b41; /* A dark brown that complements the primary */
+        --light: #faf5f0; /* A very light beige for backgrounds */
+        --accent: #a67b5b; /* A warm brown accent */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--dark);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+      }
+
+      .logo-img {
+        height: 40px; /* Adjust based on your logo size */
+        margin-right: 10px;
+        /* You might need these depending on your logo */
+        width: auto;
+        object-fit: contain;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .logo-icon {
+        margin-right: 10px;
+        font-size: 1.8rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .cta-button {
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      section {
+        padding: 4rem 1rem;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 6rem 1rem 8rem;
+        background: url("/api/placeholder/1200/600") no-repeat center center;
+        background-size: cover;
+        position: relative;
+        color: white;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #271f18;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #666;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .how-it-works {
+        background-color: #f0f2fa;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .step-number {
+        background-color: var(--primary);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .testimonials {
+        background-color: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background-color: var(--light);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin-right: 1rem;
+        overflow: hidden;
+      }
+
+      .pricing {
+        background: linear-gradient(135deg, #f6f9fe, #edf1fa);
+      }
+
+      .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 3rem 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card.highlighted {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 2px solid var(--primary);
+      }
+
+      .pricing-card.highlighted::before {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 1.5rem 0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .pricing-features {
+        list-style: none;
+        margin: 2rem 0;
+      }
+
+      .pricing-features li {
+        margin-bottom: 0.8rem;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 4rem 1rem 2rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .pricing-card.highlighted {
+          transform: scale(1);
+        }
+      }
+
+      .container {
+        max-width: 64rem; /* max-w-4xl */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      hr {
+        margin-top: .5rem;
+        margin-bottom: .5rem; /* my-4 */
+        border: none;
+        border-top: 1px solid #ccc;
+      }
+
+      h1 {
+        font-size: 1.875rem; /* text-3xl */
+        font-weight: 700; /* font-bold */
+        margin-bottom: 0.5rem; /* mb-2 */
+      }
+
+      h2 {
+        font-size: 1.5rem; /* text-2xl */
+        font-weight: 600; /* font-semibold */
+        margin-bottom: 0.5rem; /* mb-4 */
+      }
+
+      p {
+        margin-bottom: .5rem; /* mb-4 */
+        font-size: 1rem;
+        color: #1f2937; /* text-gray-800 */
+      }
+
+      .small-text {
+        font-size: 0.875rem; /* text-sm */
+        color: #4b5563; /* text-gray-600 */
+      }
+
+      .important {
+        font-weight: 600; /* font-semibold */
+        color: #dc2626; /* text-red-600 */
+      }
+
+      section {
+        margin-bottom: 0.5rem; /* mb-8 */
+      }
+    </style>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="/logo.png" alt="Mindlight.AI Logo" class="logo-img" />
+        </div>
+        <div class="nav-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#testimonials">Testimonials</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="tnc.html">Terms and Conditions</a>
+  
+
+          <!-- <a href="#pricing">Pricing</a> -->
+        </div>
+        <a href="#contact" class="cta-button">Get Started</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div
+        className=" max-w-4xl mx-auto px-4 py-8 text-gray-800 overflow-auto h-full max-h-svh"
+      >
+        <hr className="my-4" />
+
+        <h1 className="text-3xl font-bold mb-2">MINDLIGHT.AI PRIVACY POLICY</h1>
+        <p className="text-sm text-gray-600">
+          <strong>Effective Date:</strong> July 23, 2025
+        </p>
+        <p className="text-sm text-gray-600">
+          <strong>Last Updated:</strong> July 23, 2025
+        </p>
+
+        <hr className="my-4" />
+
+        <section className="mb-8">
+          <h2 id="introduction" className="text-2xl font-semibold mb-4">
+            1. Introduction
+          </h2>
+          <p className="mb-4">
+            Mindlight.ai ("we," "our," or "us") is committed to protecting the
+            privacy and confidentiality of our users ("you" or "your"). This
+            Privacy Policy describes how we collect, use, disclose, and
+            safeguard your information when you use our AI-powered mental health
+            tools and agents through our website, mobile applications, and
+            related services (collectively, the "Services").
+          </p>
+          <p className="mb-4 font-semibold text-red-600">
+            IMPORTANT: Our Services are designed to provide AI-based tools and
+            support for mental health and wellness. We are not healthcare
+            providers, and our Services are not intended to replace professional
+            medical care, diagnosis, or treatment.
+          </p>
+          <p>
+            This Privacy Policy applies to all users of our Services, including
+            therapists, practitioners, and individual clients. By accessing or
+            using our Services, you acknowledge that you have read, understood,
+            and agree to be bound by this Privacy Policy.
+          </p>
+        </section>
+        <hr className="my-4" />
+
+        <section className="mb-8">
+          <h2
+            id="information-we-collect"
+            className="text-2xl font-semibold mb-4"
+          >
+            2. Information We Collect
+          </h2>
+
+          <h3 className="text-xl font-medium mt-6 mb-2">
+            2.1 Personal Information You Provide
+          </h3>
+          <p className="mb-2">
+            We collect information you voluntarily provide to us, including:
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>
+              <strong>Account Information:</strong> Name, email address,
+              username, password, and profile information
+            </li>
+            <li>
+              <strong>Demographic Information:</strong> Age, gender, location
+              (country/state), and language preferences
+            </li>
+            <li>
+              <strong>Mental Health Information:</strong> Mood logs, journal
+              entries, responses to assessments, therapy goals, and other
+              wellness-related data you choose to share
+            </li>
+            <li>
+              <strong>Communication Data:</strong> Messages exchanged with AI
+              agents, chat logs, voice recordings (if applicable), and feedback
+            </li>
+            <li>
+              <strong>Professional Information (for practitioners):</strong>{"
+              "} License information, credentials, practice details, and
+              professional affiliations
+            </li>
+            <li>
+              <strong>Payment Information:</strong> Billing address and payment
+              method details (processed by third-party payment providers)
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-medium mt-6 mb-2">
+            2.2 Information Automatically Collected
+          </h3>
+          <p className="mb-2">
+            When you use our Services, we automatically collect certain
+            information:
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>
+              <strong>Usage Data:</strong> Features accessed, time spent on the
+              platform, interaction patterns with AI agents
+            </li>
+            <li>
+              <strong>Device Information:</strong> Device type, operating
+              system, browser type, IP address, and device identifiers
+            </li>
+            <li>
+              <strong>Log Data:</strong> Access times, pages viewed, links
+              clicked, and system activity
+            </li>
+            <li>
+              <strong>Location Data:</strong> General geographic location based
+              on IP address (not precise geolocation)
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-medium mt-6 mb-2">
+            2.3 Information from Third Parties
+          </h3>
+          <p className="mb-2">We may receive information about you from:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>
+              Healthcare providers or therapists (with your explicit consent)
+            </li>
+            <li>
+              Third-party authentication services (e.g., Google, Apple) if you
+              choose to use them
+            </li>
+            <li>Payment processors for transaction verification</li>
+          </ul>
+        </section>
+
+        <hr className="my-4" />
+
+
+        <section className="mb-8" aria-labelledby="how-we-use-info">
+          <h2 id="how-we-use-info" className="text-2xl font-semibold mb-4">
+            3. How We Use Your Information
+          </h2>
+
+          <section className="mb-6" aria-labelledby="primary-purposes">
+            <h3 id="primary-purposes" className="text-xl font-medium mb-2">
+              3.1 Primary Purposes
+            </h3>
+            <p className="mb-2">We use your information to:</p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>
+                <strong>Provide Services:</strong> Deliver AI-powered mental
+                health tools, personalized recommendations, and support
+              </li>
+              <li>
+                <strong>Improve AI Performance:</strong> Train and enhance our
+                AI models to provide better, more personalized responses
+              </li>
+              <li>
+                <strong>Account Management:</strong> Create and maintain your
+                account, authenticate access, and provide customer support
+              </li>
+              <li>
+                <strong>Communication:</strong> Send service-related
+                notifications, updates, and respond to your inquiries
+              </li>
+              <li>
+                <strong>Safety and Security:</strong> Monitor for harmful
+                content, prevent abuse, and protect user safety
+              </li>
+            </ul>
+          </section>
+
+          <section className="mb-6" aria-labelledby="gdpr-bases">
+            <h3 id="gdpr-bases" className="text-xl font-medium mb-2">
+              3.2 Legal Bases for Processing (GDPR)
+            </h3>
+            <p className="mb-2">
+              Under the General Data Protection Regulation (GDPR), we process
+              your personal data based on:
+            </p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>
+                <strong>Consent:</strong> For processing sensitive mental health
+                data and marketing communications
+              </li>
+              <li>
+                <strong>Contract Performance:</strong> To provide the Services
+                you've requested
+              </li>
+              <li>
+                <strong>Legitimate Interests:</strong> For service improvement,
+                security, and analytics (balanced against your rights)
+              </li>
+              <li>
+                <strong>Legal Obligation:</strong> To comply with applicable
+                laws and regulations
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="sensitive-processing">
+            <h3 id="sensitive-processing" className="text-xl font-medium mb-2">
+              3.3 Sensitive Data Processing
+            </h3>
+            <p className="mb-2">
+              Mental health information is considered sensitive personal data.
+              We process this information only:
+            </p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>With your explicit consent</li>
+              <li>
+                When necessary for the provision of Services you've requested
+              </li>
+              <li>Subject to appropriate safeguards and security measures</li>
+            </ul>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section className="mb-8" aria-labelledby="data-sharing">
+          <h2 id="data-sharing" className="text-2xl font-semibold mb-4">
+            4. Data Sharing and Disclosure
+          </h2>
+
+          <section className="mb-6" aria-labelledby="no-sale">
+            <h3 id="no-sale" className="text-xl font-medium mb-2">
+              4.1 No Sale of Personal Data
+            </h3>
+            <p>
+              We do not sell, rent, or trade your personal information. We will
+              never share your mental health data with advertisers, data
+              brokers, or other commercial third parties for their marketing
+              purposes.
+            </p>
+          </section>
+
+          <section className="mb-6" aria-labelledby="limited-sharing">
+            <h3 id="limited-sharing" className="text-xl font-medium mb-2">
+              4.2 Limited Sharing Scenarios
+            </h3>
+            <p className="mb-2">
+              We may share your information only in the following limited
+              circumstances:
+            </p>
+
+            <ul
+              className="list-disc list-inside space-y-1 mb-4"
+              role="list"
+              aria-label="Sharing with consent"
+            >
+              <li>
+                <strong>With Your Consent:</strong>
+              </li>
+              <ul className="list-disc list-inside ml-5 space-y-1">
+                <li>With healthcare providers or therapists you designate</li>
+                <li>When you explicitly authorize specific data sharing</li>
+              </ul>
+            </ul>
+
+            <ul
+              className="list-disc list-inside space-y-1 mb-4"
+              role="list"
+              aria-label="Service providers"
+            >
+              <li>
+                <strong>Service Providers:</strong>
+              </li>
+              <ul className="list-disc list-inside ml-5 space-y-1">
+                <li>
+                  Trusted third-party vendors who help us operate our Services
+                  (cloud hosting, payment processing, analytics)
+                </li>
+                <li>
+                  These providers are bound by strict confidentiality
+                  obligations and can only use your data as instructed
+                </li>
+              </ul>
+            </ul>
+
+            <ul
+              className="list-disc list-inside space-y-1 mb-4"
+              role="list"
+              aria-label="Legal requirements"
+            >
+              <li>
+                <strong>Legal Requirements:</strong>
+              </li>
+              <ul className="list-disc list-inside ml-5 space-y-1">
+                <li>
+                  To comply with legal obligations, court orders, or government
+                  requests
+                </li>
+                <li>
+                  To protect our rights, property, or safety, or that of our
+                  users
+                </li>
+                <li>In connection with legal proceedings or investigations</li>
+              </ul>
+            </ul>
+
+            <ul
+              className="list-disc list-inside space-y-1"
+              role="list"
+              aria-label="Business transfers"
+            >
+              <li>
+                <strong>Business Transfers:</strong>
+              </li>
+              <ul className="list-disc list-inside ml-5 space-y-1">
+                <li>
+                  In the event of a merger, acquisition, or sale of assets (with
+                  continued privacy protections)
+                </li>
+              </ul>
+            </ul>
+          </section>
+
+          <section aria-labelledby="deidentified-data">
+            <h3 id="deidentified-data" className="text-xl font-medium mb-2">
+              4.3 De-identified Data
+            </h3>
+            <p>
+              We may use de-identified, aggregated data for research, analytics,
+              and service improvement. This data cannot be used to identify you
+              personally.
+            </p>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section className="mb-12" aria-labelledby="privacy-rights">
+          <h2 id="privacy-rights" className="text-2xl font-semibold mb-4">
+            6. Your Privacy Rights
+          </h2>
+
+          <section className="mb-6" aria-labelledby="access-control">
+            <h3 id="access-control" className="text-xl font-medium mb-2">
+              6.1 Access and Control
+            </h3>
+            <p className="mb-2">You have the right to:</p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>
+                <strong>Access:</strong> Request a copy of your personal data
+              </li>
+              <li>
+                <strong>Correction:</strong> Update or correct inaccurate
+                information
+              </li>
+              <li>
+                <strong>Deletion:</strong> Request deletion of your personal
+                data (subject to legal limitations)
+              </li>
+              <li>
+                <strong>Portability:</strong> Receive your data in a portable
+                format
+              </li>
+              <li>
+                <strong>Restriction:</strong> Limit how we process your data
+              </li>
+              <li>
+                <strong>Objection:</strong> Object to processing based on
+                legitimate interests
+              </li>
+            </ul>
+          </section>
+
+          <section className="mb-6" aria-labelledby="consent-management">
+            <h3 id="consent-management" className="text-xl font-medium mb-2">
+              6.2 Consent Management
+            </h3>
+            <p className="mb-2">You can:</p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>Withdraw consent for data processing at any time</li>
+              <li>Modify your privacy preferences in your account settings</li>
+              <li>Opt out of marketing communications</li>
+            </ul>
+          </section>
+
+          <section className="mb-6" aria-labelledby="california-rights">
+            <h3 id="california-rights" className="text-xl font-medium mb-2">
+              6.3 California Privacy Rights (CCPA)
+            </h3>
+            <p className="mb-2">California residents have additional rights:</p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>Right to know what personal information is collected</li>
+              <li>Right to delete personal information</li>
+              <li>Right to opt-out of sale (though we don't sell data)</li>
+              <li>Right to non-discrimination for exercising privacy rights</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="exercising-rights">
+            <h3 id="exercising-rights" className="text-xl font-medium mb-2">
+              6.4 Exercising Your Rights
+            </h3>
+            <p>
+              To exercise your privacy rights, contact us at{" "}
+              <a
+                href="mailto:privacy@mindlight.ai"
+                className="text-blue-600 underline"
+              >
+                privacy@mindlight.ai </a
+              >{" "} or through your account settings. We will respond within 30
+              days (or as required by applicable law).
+            </p>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+        <section className="mb-12" aria-labelledby="data-retention">
+          <h2 id="data-retention" className="text-2xl font-semibold mb-4">
+            7. Data Retention
+          </h2>
+
+          <section className="mb-6" aria-labelledby="retention-periods">
+            <h3 id="retention-periods" className="text-xl font-medium mb-2">
+              7.1 Retention Periods
+            </h3>
+            <p className="mb-2">
+              We retain your personal information only as long as necessary for:
+            </p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>Providing Services (duration of your account)</li>
+              <li>
+                Legal compliance (varies by jurisdiction, typically 3–7 years)
+              </li>
+              <li>Legitimate business purposes (security, fraud prevention)</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="deletion-process">
+            <h3 id="deletion-process" className="text-xl font-medium mb-2">
+              7.2 Deletion Process
+            </h3>
+            <p className="mb-2">When you delete your account:</p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>Personal data is permanently deleted within 30 days</li>
+              <li>
+                Some information may be retained in de-identified form for
+                research
+              </li>
+              <li>
+                Legal and safety-related data may be retained as required by law
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section aria-labelledby="international-transfers">
+          <h2
+            id="international-transfers"
+            className="text-2xl font-semibold mb-4"
+          >
+            8. International Transfers
+          </h2>
+
+          <section className="mb-6" aria-labelledby="global-services">
+            <h3 id="global-services" className="text-xl font-medium mb-2">
+              8.1 Global Services
+            </h3>
+            <p>
+              Our Services are provided globally, which may require transferring
+              your data to countries outside your residence, including the
+              United States.
+            </p>
+          </section>
+
+          <section aria-labelledby="transfer-protections">
+            <h3 id="transfer-protections" className="text-xl font-medium mb-2">
+              8.2 Transfer Protections
+            </h3>
+            <p className="mb-2">
+              For international transfers, we implement appropriate safeguards:
+            </p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>
+                <strong>Adequacy Decisions:</strong> Transfers to countries with
+                adequate protection levels
+              </li>
+              <li>
+                <strong>Standard Contractual Clauses:</strong> EU-approved
+                contract terms for data protection
+              </li>
+              <li>
+                <strong>Additional Safeguards:</strong> Technical and
+                organizational measures for extra protection
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section className="mb-12" aria-labelledby="children-privacy">
+          <h2 id="children-privacy" className="text-2xl font-semibold mb-4">
+            9. Children's Privacy
+          </h2>
+
+          <section className="mb-6" aria-labelledby="age-restrictions">
+            <h3 id="age-restrictions" className="text-xl font-medium mb-2">
+              9.1 Age Restrictions
+            </h3>
+            <p>
+              Our Services are not intended for children under 13 years of age.
+              We do not knowingly collect personal information from children
+              under 13.
+            </p>
+          </section>
+
+          <section aria-labelledby="teen-users">
+            <h3 id="teen-users" className="text-xl font-medium mb-2">
+              9.2 Teen Users (13–17)
+            </h3>
+            <p className="mb-2">For users aged 13–17:</p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>Parental consent may be required by local law</li>
+              <li>Additional privacy protections apply</li>
+              <li>Limited data collection and sharing</li>
+            </ul>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section className="mb-12" aria-labelledby="third-party-services">
+          <h2 id="third-party-services" className="text-2xl font-semibold mb-4">
+            10. Third-Party Services
+          </h2>
+
+          <section className="mb-6" aria-labelledby="integrations">
+            <h3 id="integrations" className="text-xl font-medium mb-2">
+              10.1 Integrations
+            </h3>
+            <p>
+              Our Services may integrate with third-party platforms
+              (authentication, payment processing). These integrations are
+              governed by the third party's privacy policies.
+            </p>
+          </section>
+
+          <section aria-labelledby="external-links">
+            <h3 id="external-links" className="text-xl font-medium mb-2">
+              10.2 Links
+            </h3>
+            <p>
+              Our Services may contain links to external websites. We are not
+              responsible for the privacy practices of external sites.
+            </p>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section className="mb-12" aria-labelledby="updates">
+          <h2 id="updates" className="text-2xl font-semibold mb-4">
+            11. Updates to This Policy
+          </h2>
+
+          <section className="mb-6" aria-labelledby="changes">
+            <h3 id="changes" className="text-xl font-medium mb-2">
+              11.1 Changes
+            </h3>
+            <p className="mb-2">
+              We may update this Privacy Policy to reflect changes in our
+              practices, technology, or legal requirements. Material changes
+              will be communicated through:
+            </p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>Email notification to registered users</li>
+              <li>Prominent notice in our Services</li>
+              <li>Updated effective date</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="continued-use">
+            <h3 id="continued-use" className="text-xl font-medium mb-2">
+              11.2 Continued Use
+            </h3>
+            <p>
+              Your continued use of our Services after changes constitutes
+              acceptance of the updated Privacy Policy.
+            </p>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section className="mb-12" aria-labelledby="contact-info">
+          <h2 id="contact-info" className="text-2xl font-semibold mb-4">
+            12. Contact Information
+          </h2>
+
+          <section className="mb-6" aria-labelledby="privacy-officer">
+            <h3 id="privacy-officer" className="text-xl font-medium mb-2">
+              12.1 Privacy Officer
+            </h3>
+            <ul className="list-none space-y-1" role="list">
+              <li>
+                <strong>Email:</strong>{" "}
+                <a
+                  href="mailto:privacy@mindlight.ai"
+                  className="text-blue-600 underline"
+                >
+                  privacy@mindlight.ai
+                </a>
+              </li>
+              <li><strong>Mail:</strong> San Francisco, CA</li>
+              <li>
+                <strong>Phone:</strong>
+              </li>
+            </ul>
+          </section>
+
+          <section className="mb-6" aria-labelledby="dpo">
+            <h3 id="dpo" className="text-xl font-medium mb-2">
+              12.2 Data Protection Officer (EU Users)
+            </h3>
+            <ul className="list-none space-y-1" role="list">
+              <li>
+                <strong>Email:</strong>{" "}
+                <a
+                  href="mailto:dpo@mindlight.ai"
+                  className="text-blue-600 underline"
+                >
+                  dpo@mindlight.ai
+                </a>
+              </li>
+              <li><strong>Mail:</strong> [EU REPRESENTATIVE ADDRESS]</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="regulatory-authorities">
+            <h3
+              id="regulatory-authorities"
+              className="text-xl font-medium mb-2"
+            >
+              12.3 Regulatory Authorities
+            </h3>
+            <p className="mb-2">
+              You have the right to file complaints with data protection
+              authorities:
+            </p>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>
+                <strong>EU:</strong> Contact your local data protection
+                authority
+              </li>
+              <li>
+                <strong>California:</strong> California Privacy Protection
+                Agency
+              </li>
+              <li>
+                <strong>Other jurisdictions:</strong> Contact your local privacy
+                regulator
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <section className="mb-12" aria-labelledby="jurisdictional-provisions">
+          <h2
+            id="jurisdictional-provisions"
+            className="text-2xl font-semibold mb-4"
+          >
+            13. Specific Provisions by Jurisdiction
+          </h2>
+
+          <section className="mb-6" aria-labelledby="eu-gdpr">
+            <h3 id="eu-gdpr" className="text-xl font-medium mb-2">
+              13.1 European Union (GDPR)
+            </h3>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>Legal basis for processing clearly identified</li>
+              <li>Enhanced rights for data subjects</li>
+              <li>Data Protection Impact Assessments conducted</li>
+              <li>Privacy by Design principles implemented</li>
+            </ul>
+          </section>
+
+          <section className="mb-6" aria-labelledby="us-ccpa">
+            <h3 id="us-ccpa" className="text-xl font-medium mb-2">
+              13.2 United States
+            </h3>
+            <ul className="list-disc list-inside space-y-1" role="list">
+              <li>CCPA compliance for California residents</li>
+              <li>
+                HIPAA-inspired protections (though we're not a covered entity)
+              </li>
+              <li>State-specific privacy law compliance</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="other-jurisdictions">
+            <h3 id="other-jurisdictions" className="text-xl font-medium mb-2">
+              13.3 Other Jurisdictions
+            </h3>
+            <p>
+              We comply with applicable data protection laws in all
+              jurisdictions where we operate, including but not limited to
+              Canada (PIPEDA), Australia (Privacy Act), and Brazil (LGPD).
+            </p>
+          </section>
+        </section>
+
+        <hr className="my-4" />
+
+        <footer className="text-sm text-gray-500">
+          <p><strong>Last Updated:</strong> July 23, 2025</p>
+          <p><strong>Version:</strong> 1.0</p>
+          <p>
+            For the most current version of this Privacy Policy, please visit:{"
+            "}
+            <a href="#" className="text-blue-600 underline"> [URL] </a>
+          </p>
+        </footer>
+        <hr className="my-4" />
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Mindlight.AI</h3>
+          <p>
+            Making mental health support accessible, affordable, and effective
+            through the power of AI.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-icon">fb</a>
+            <a href="#" class="social-icon">tw</a>
+            <a href="#" class="social-icon">ig</a>
+            <a href="#" class="social-icon">li</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Mental Health Library</a></li>
+            <li><a href="#">Therapist Partnership</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">HIPAA Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 Mindlight.AI. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

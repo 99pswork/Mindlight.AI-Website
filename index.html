@@ -1,436 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mindlight.AI | Mental Health Care Innovation</title>
     <style>
-            :root {
-            --primary: #ECD2BD;
-            --secondary: #D1A78F;  /* A slightly darker shade for contrast */
-            --dark: #5A4B41;       /* A dark brown that complements the primary */
-            --light: #FAF5F0;      /* A very light beige for backgrounds */
-            --accent: #A67B5B;     /* A warm brown accent */
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--dark); 
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 1rem;
+      :root {
+        --primary: #ecd2bd;
+        --secondary: #d1a78f; /* A slightly darker shade for contrast */
+        --dark: #5a4b41; /* A dark brown that complements the primary */
+        --light: #faf5f0; /* A very light beige for backgrounds */
+        --accent: #a67b5b; /* A warm brown accent */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--dark);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+      }
+
+      .logo-img {
+        height: 40px; /* Adjust based on your logo size */
+        margin-right: 10px;
+        /* You might need these depending on your logo */
+        width: auto;
+        object-fit: contain;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .logo-icon {
+        margin-right: 10px;
+        font-size: 1.8rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .cta-button {
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      section {
+        padding: 4rem 1rem;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 6rem 1rem 8rem;
+        background: url("/api/placeholder/1200/600") no-repeat center center;
+        background-size: cover;
+        position: relative;
+        color: white;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #271f18;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #666;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .how-it-works {
+        background-color: #f0f2fa;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .step-number {
+        background-color: var(--primary);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .testimonials {
+        background-color: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background-color: var(--light);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin-right: 1rem;
+        overflow: hidden;
+      }
+
+      .pricing {
+        background: linear-gradient(135deg, #f6f9fe, #edf1fa);
+      }
+
+      .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 3rem 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card.highlighted {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 2px solid var(--primary);
+      }
+
+      .pricing-card.highlighted::before {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 1.5rem 0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .pricing-features {
+        list-style: none;
+        margin: 2rem 0;
+      }
+
+      .pricing-features li {
+        margin-bottom: 0.8rem;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 4rem 1rem 2rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
         }
 
-        .logo-img {
-            height: 40px; /* Adjust based on your logo size */
-            margin-right: 10px;
-            /* You might need these depending on your logo */
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .cta-button {
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            background-color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        section {
-            padding: 4rem 1rem;
-            /* max-width: 1200px; */
-            margin: 0 auto;
-        }
-        
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 1rem 8rem;
-            background: url('/api/placeholder/1200/600') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            color: white;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #271F18;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-        
         h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+          font-size: 2.2rem;
         }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-        
+
         .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: var(--primary);
+          font-size: 1.8rem;
         }
-        
-        .section-subtitle {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #666;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .how-it-works {
-            background-color: #f0f2fa;
-        }
-        
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .step-number {
-            background-color: var(--primary);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonials {
-            background-color: white;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin-right: 1rem;
-            overflow: hidden;
-        }
-        
-        .pricing {
-            background: linear-gradient(135deg, #f6f9fe, #edf1fa);
-        }
-        
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .pricing-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 3rem 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
+
         .pricing-card.highlighted {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid var(--primary);
+          transform: scale(1);
         }
-        
-        .pricing-card.highlighted::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 5px 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-        }
-        
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 1.5rem 0;
-        }
-        
-        .price span {
-            font-size: 1rem;
-            color: #666;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        
-        .pricing-features li {
-            margin-bottom: 0.8rem;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 4rem 1rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .pricing-card.highlighted {
-                transform: scale(1);
-            }
-        }
+      }
     </style>
-</head>
-<body>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="/logo.png" alt="Mindlight.AI Logo" class="logo-img">
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#testimonials">Testimonials</a>
-                <!-- <a href="#pricing">Pricing</a> -->
-            </div>
-            <a href="#contact" class="cta-button">Get Started</a>
-        </nav>
-    </header>
-    
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Coming Soon...</h1>
-            <!-- <p>Mindlight.AI combines advanced artificial intelligence with evidence-based therapeutic approaches to provide accessible mental health support whenever you need it.</p> -->
-            <!-- <a href="#contact" class="cta-button">Try For Free</a> -->
+      <nav>
+        <div class="logo">
+          <img src="/logo.png" alt="Mindlight.AI Logo" class="logo-img" />
         </div>
+        <div class="nav-links">
+          <a href="index.html#features">Features</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="index.html#testimonials">Testimonials</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="tnc.html">Terms and Conditions</a>
+
+          <!-- <a href="#pricing">Pricing</a> -->
+        </div>
+        <a href="#contact" class="cta-button">Get Started</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Coming Soon...</h1>
+        <!-- <p>Mindlight.AI combines advanced artificial intelligence with evidence-based therapeutic approaches to provide accessible mental health support whenever you need it.</p> -->
+        <!-- <a href="#contact" class="cta-button">Try For Free</a> -->
+      </div>
     </section>
-    
+
     <!-- <section id="features">
         <h2 class="section-title">Why Choose Mindlight.AI</h2>
         <p class="section-subtitle">Our platform offers unique benefits that traditional therapy cannot match</p>
@@ -473,7 +478,7 @@
             </div>
         </div>
     </section> -->
-    
+
     <!-- <section id="how-it-works" class="how-it-works">
         <h2 class="section-title">How Mindlight.AI Works</h2>
         <p class="section-subtitle">Getting started is simple and takes less than 5 minutes</p>
@@ -504,7 +509,7 @@
             </div>
         </div>
     </section> -->
-    
+
     <!-- <section id="testimonials" class="testimonials">
         <h2 class="section-title">What Our Users Say</h2>
         <p class="section-subtitle">Join thousands who have improved their mental wellbeing with Mindlight.AI</p>
@@ -550,7 +555,7 @@
             </div>
         </div>
     </section> -->
-    
+
     <!-- <section id="pricing" class="pricing">
         <h2 class="section-title">Simple, Transparent Pricing</h2>
         <p class="section-subtitle">Choose the plan that fits your needs</p>
@@ -596,7 +601,7 @@
             </div>
         </div>
     </section> -->
-    
+
     <!-- <section id="contact">
         <h2 class="section-title">Ready to Transform Your Mental Health?</h2>
         <p class="section-subtitle">Join thousands who have found relief and growth with Mindlight.AI</p>
@@ -604,56 +609,59 @@
             <a href="#" class="cta-button">Start Free Trial</a>
         </div> 
     </section>  -->
-    
+
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Mindlight.AI</h3>
-                <p>Making mental health support accessible, affordable, and effective through the power of AI.</p>
-                <div class="social-links">
-                    <a href="#" class="social-icon">fb</a>
-                    <a href="#" class="social-icon">tw</a>
-                    <a href="#" class="social-icon">ig</a>
-                    <a href="#" class="social-icon">li</a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Mental Health Library</a></li>
-                    <li><a href="#">Therapist Partnership</a></li>
-                    <li><a href="#">API Documentation</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">HIPAA Compliance</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Accessibility</a></li>
-                </ul>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Mindlight.AI</h3>
+          <p>
+            Making mental health support accessible, affordable, and effective
+            through the power of AI.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-icon">fb</a>
+            <a href="#" class="social-icon">tw</a>
+            <a href="#" class="social-icon">ig</a>
+            <a href="#" class="social-icon">li</a>
+          </div>
         </div>
-        
-        <div class="copyright">
-            <p>&copy; 2025 Mindlight.AI. All rights reserved.</p>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
         </div>
+
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Mental Health Library</a></li>
+            <li><a href="#">Therapist Partnership</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">HIPAA Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 Mindlight.AI. All rights reserved.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
