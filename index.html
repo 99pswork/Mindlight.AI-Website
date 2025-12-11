@@ -1,659 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindlight.AI | Mental Health Care Innovation</title>
-    <style>
-            :root {
-            --primary: #ECD2BD;
-            --secondary: #D1A78F;  /* A slightly darker shade for contrast */
-            --dark: #5A4B41;       /* A dark brown that complements the primary */
-            --light: #FAF5F0;      /* A very light beige for backgrounds */
-            --accent: #A67B5B;     /* A warm brown accent */
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--dark); 
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 1rem;
-        }
-
-        .logo-img {
-            height: 40px; /* Adjust based on your logo size */
-            margin-right: 10px;
-            /* You might need these depending on your logo */
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .cta-button {
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            background-color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        section {
-            padding: 4rem 1rem;
-            /* max-width: 1200px; */
-            margin: 0 auto;
-        }
-        
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 1rem 8rem;
-            background: url('/api/placeholder/1200/600') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            color: white;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #271F18;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: var(--primary);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #666;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .how-it-works {
-            background-color: #f0f2fa;
-        }
-        
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .step-number {
-            background-color: var(--primary);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonials {
-            background-color: white;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin-right: 1rem;
-            overflow: hidden;
-        }
-        
-        .pricing {
-            background: linear-gradient(135deg, #f6f9fe, #edf1fa);
-        }
-        
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .pricing-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 3rem 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pricing-card.highlighted {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid var(--primary);
-        }
-        
-        .pricing-card.highlighted::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 5px 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-        }
-        
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 1.5rem 0;
-        }
-        
-        .price span {
-            font-size: 1rem;
-            color: #666;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        
-        .pricing-features li {
-            margin-bottom: 0.8rem;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 4rem 1rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .pricing-card.highlighted {
-                transform: scale(1);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindlight.ai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    /* Custom Gradient Text Class */
+    .text-gradient-purple {
+      background: linear-gradient(to right, #7e22ce, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Background Star Simulation for Hero */
+    .stars-bg {
+      background-color: #0f172a;
+      background-image: 
+        radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 50%),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size: 100% 100%, 400px 400px, 300px 300px;
+      background-position: 0 0, 0 0, 40px 60px;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="/logo.png" alt="Mindlight.AI Logo" class="logo-img">
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#testimonials">Testimonials</a>
-                <!-- <a href="#pricing">Pricing</a> -->
-            </div>
-            <a href="#contact" class="cta-button">Get Started</a>
-        </nav>
-    </header>
-    
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Coming Soon...</h1>
-            <!-- <p>Mindlight.AI combines advanced artificial intelligence with evidence-based therapeutic approaches to provide accessible mental health support whenever you need it.</p> -->
-            <!-- <a href="#contact" class="cta-button">Try For Free</a> -->
-        </div>
-    </section>
-    
-    <!-- <section id="features">
-        <h2 class="section-title">Why Choose Mindlight.AI</h2>
-        <p class="section-subtitle">Our platform offers unique benefits that traditional therapy cannot match</p>
-        
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>AI-Powered Therapy</h3>
-                <p>Our advanced AI understands context, emotions, and provides personalized therapeutic support based on your unique needs.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Complete Privacy</h3>
-                <p>All conversations are encrypted and confidential. Your data is never sold or shared with third parties.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">⏰</div>
-                <h3>24/7 Availability</h3>
-                <p>Get support anytime, anywhere. No appointments needed, no waiting lists, and no time constraints.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Progress Tracking</h3>
-                <p>Monitor your mental wellness journey with detailed insights, mood tracking, and personalized recommendations.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Affordable Care</h3>
-                <p>Access quality mental health support at a fraction of the cost of traditional therapy sessions.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h3>Human Oversight</h3>
-                <p>Our AI is supervised by licensed therapists who review critical cases and ensure quality of care.</p>
-            </div>
-        </div>
-    </section> -->
-    
-    <!-- <section id="how-it-works" class="how-it-works">
-        <h2 class="section-title">How Mindlight.AI Works</h2>
-        <p class="section-subtitle">Getting started is simple and takes less than 5 minutes</p>
-        
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Sign Up</h3>
-                <p>Create your secure account and complete a brief assessment to help us understand your needs.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Connect with AI</h3>
-                <p>Start chatting with your AI therapist through our mobile app or web platform anytime.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Receive Support</h3>
-                <p>Get personalized guidance, coping strategies, and emotional support based on evidence-based approaches.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Track Progress</h3>
-                <p>Monitor your improvement over time with insights and adjust your therapeutic journey as needed.</p>
-            </div>
-        </div>
-    </section> -->
-    
-    <!-- <section id="testimonials" class="testimonials">
-        <h2 class="section-title">What Our Users Say</h2>
-        <p class="section-subtitle">Join thousands who have improved their mental wellbeing with Mindlight.AI</p>
-        
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Mindlight has been there for me at 3 AM when anxiety strikes and no one else is available. The responses are incredibly thoughtful and helpful - sometimes I forget I'm talking to an AI."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="/api/placeholder/50/50" alt="User avatar">
-                    </div>
-                    <div>
-                        <strong>Sarah K.</strong>
-                        <p>Using Mindlight for 8 months</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"As someone who couldn't afford traditional therapy, Mindlight.AI has been a lifesaver. The daily check-ins and coping techniques have helped me manage my depression in ways I never thought possible."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="/api/placeholder/50/50" alt="User avatar">
-                    </div>
-                    <div>
-                        <strong>Marcus T.</strong>
-                        <p>Using Mindlight for 1 year</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"I was skeptical about AI therapy, but the personalization is impressive. Mindlight remembers my triggers, suggests exercises that work for me, and has genuinely helped improve my relationships."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="/api/placeholder/50/50" alt="User avatar">
-                    </div>
-                    <div>
-                        <strong>Jessica M.</strong>
-                        <p>Using Mindlight for 6 months</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    
-    <!-- <section id="pricing" class="pricing">
-        <h2 class="section-title">Simple, Transparent Pricing</h2>
-        <p class="section-subtitle">Choose the plan that fits your needs</p>
-        
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <h3>Basic</h3>
-                <div class="price">$9.99<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li>Unlimited AI chat support</li>
-                    <li>Basic mood tracking</li>
-                    <li>Weekly progress reports</li>
-                    <li>Guided meditations</li>
-                    <li>Mobile & web access</li>
-                </ul>
-                <a href="#" class="cta-button">Get Started</a>
-            </div>
-            
-            <div class="pricing-card highlighted">
-                <h3>Premium</h3>
-                <div class="price">$19.99<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li>Everything in Basic</li>
-                    <li>Priority response times</li>
-                    <li>Advanced analytics & insights</li>
-                    <li>Specialized therapeutic modules</li>
-                    <li>Monthly check-in with human therapist</li>
-                </ul>
-                <a href="#" class="cta-button">Get Started</a>
-            </div>
-            
-            <div class="pricing-card">
-                <h3>Enterprise</h3>
-                <div class="price">Custom<span> pricing</span></div>
-                <ul class="pricing-features">
-                    <li>Everything in Premium</li>
-                    <li>Custom integration</li>
-                    <li>Employee wellness dashboard</li>
-                    <li>Dedicated account manager</li>
-                    <li>Regular review with clinical team</li>
-                </ul>
-                <a href="#" class="cta-button">Contact Us</a>
-            </div>
-        </div>
-    </section> -->
-    
-    <!-- <section id="contact">
-        <h2 class="section-title">Ready to Transform Your Mental Health?</h2>
-        <p class="section-subtitle">Join thousands who have found relief and growth with Mindlight.AI</p>
-         <div style="text-align: center; margin-top: 2rem;">
-            <a href="#" class="cta-button">Start Free Trial</a>
-        </div> 
-    </section>  -->
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Mindlight.AI</h3>
-                <p>Making mental health support accessible, affordable, and effective through the power of AI.</p>
-                <div class="social-links">
-                    <a href="#" class="social-icon">fb</a>
-                    <a href="#" class="social-icon">tw</a>
-                    <a href="#" class="social-icon">ig</a>
-                    <a href="#" class="social-icon">li</a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Mental Health Library</a></li>
-                    <li><a href="#">Therapist Partnership</a></li>
-                    <li><a href="#">API Documentation</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">HIPAA Compliance</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Accessibility</a></li>
-                </ul>
-            </div>
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+
+  <nav class="absolute top-0 left-0 w-full z-20 px-6 py-6 md:px-24 flex justify-between items-center text-white">
+    <div class="flex items-center gap-2">
+       <img src="/assets/img_logo.jpg" alt="Mindlight Logo" class="w-3 h-3 rounded-full" />
+       <span class="font-bold text-xl tracking-tight">mindlight.ai</span>
+    </div>
+    <button class="text-white text-sm font-semibold transition shadow-lg shadow-indigo-500/30 hover:opacity-90 whitespace-nowrap" style="background: linear-gradient(180.02deg, #37318A 21.5%, #574EBD 99.98%); height: 56px; border-radius: 102.82px; padding: 10px 30px;">
+      Get Started
+    </button>
+  </nav>
+
+  <section class="relative w-full px-6 pt-32 pb-32 md:px-24 text-white overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/12.png');">
+    <div class="absolute inset-0 bg-black/30"></div>
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium bg-white/10 border border-white/10 rounded-full mb-6 backdrop-blur-sm">
+          <span>✨ Practitioner Co-Pilot</span>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2025 Mindlight.AI. All rights reserved.</p>
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          Your always-on <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-indigo-200">practice companion</span>
+        </h1>
+        
+        <p class="mt-6 text-indigo-100 text-lg max-w-lg leading-relaxed">
+          Voice-activated AI agents that handle the operational chaos, so you can
+          focus on what you do best—being human.
+        </p>
+
+        <ul class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-4 text-gray-300 text-sm">
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> Automates your admin tasks</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> Gives you the latest research</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> Benchmarked for workflows</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> Built with real practitioners</li>
+        </ul>
+
+        <button class="mt-10 text-white font-semibold transition hover:opacity-90 whitespace-nowrap" style="background: linear-gradient(180.02deg, #37318A 21.5%, #574EBD 99.98%); width: 286px; height: 56px; border-radius: 102.82px; padding: 10px 66px;">
+          Join Beta Program
+        </button>
+      </div>
+
+      <div class="flex justify-center md:justify-end relative">
+        <div class="absolute inset-0 bg-indigo-500 blur-[80px] opacity-20 rounded-full"></div>
+        <img src="/assets/img1.png" alt="AI Orb" class="relative w-80 md:w-[28rem] drop-shadow-2xl z-10" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-24 px-6 md:px-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="inline-block px-3 py-1 text-xs font-semibold bg-indigo-50 rounded-full mb-4" style="color: #655FB0;">
+          <img src="/assets/star.png" alt="" class="w-4 h-4 inline-block mr-1" /> Practitioner Assistant
         </div>
-    </footer>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight text-gray-900">
+          AI based app to run your entire practice and <br /><span class="text-gradient-purple">enhance your patients experiences</span>
+        </h2>
+
+        <p class="text-gray-500">
+          Designed to help you understand and support clients more deeply.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <img src="/assets/img2.png" alt="Therapy Session" class="rounded-3xl shadow-xl w-full object-cover" />
+        </div>
+
+        <div>
+          <ul class="space-y-8">
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Context-Aware Intelligence</h4>
+              <p class="text-sm text-gray-500 mt-1">Understands your client's journey, treatment history, and therapeutic goals to provide relevant session prep and recommendations.</p>
+            </div>
+          </li>
+          
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Instant Documentation</h4>
+              <p class="text-sm text-gray-500 mt-1">Transform session notes into comprehensive summaries, progress reports, and therapeutic reflections in seconds, not hours.</p>
+            </div>
+          </li>
+
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">Evidence-Based Training</h4>
+              <p class="text-sm text-gray-500 mt-1">Built on a foundation of CBT, DBT, ACT, and other proven modalities. Our proprietary model learns from real therapeutic expertise.</p>
+            </div>
+          </li>
+        </ul>
+
+        <button class="mt-10 text-white font-semibold transition hover:opacity-90 whitespace-nowrap" style="background: linear-gradient(180.02deg, #37318A 21.5%, #574EBD 99.98%); width: 286px; height: 56px; border-radius: 102.82px; padding: 10px 66px;">
+          Join Beta Program
+        </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-24 px-6 md:px-24 bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/Group 1686557978.png');">
+    <div class="text-center mb-16">
+       <div class="inline-block px-3 py-1 text-xs font-semibold bg-purple-50 rounded-full mb-4" style="color: #655FB0;">
+          <img src="/assets/heart.png" alt="" class="w-4 h-4 inline-block mr-1" /> Client Support Agent
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+          Personalised AI companions <br /> <span class="text-gradient-purple">for every client</span>
+        </h2>
+        <p class="mt-4 text-gray-500 max-w-2xl mx-auto">
+          Extend care beyond sessions with AI-powered companions that provide 24/7 support, gentle reminders, and personalized coping strategies.
+        </p>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <ul class="space-y-8">
+          <li class="flex gap-4 items-start">
+             <div class="mt-1 bg-pink-50 text-pink-500 p-2 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+             </div>
+             <div>
+                <b class="text-gray-900 block mb-1">Empathetic Conversations</b>
+                <p class="text-sm text-gray-600 leading-relaxed">Natural, compassionate interactions trained on evidence-based therapeutic approaches.</p>
+             </div>
+          </li>
+          <li class="flex gap-4 items-start">
+             <div class="mt-1 bg-indigo-50 text-indigo-500 p-2 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+             </div>
+             <div>
+                <b class="text-gray-900 block mb-1">Sentiment and Prescriptive Analysis</b>
+                <p class="text-sm text-gray-600 leading-relaxed">Advanced sentiment analysis alerts you when patients need immediate support.</p>
+             </div>
+          </li>
+          <li class="flex gap-4 items-start">
+             <div class="mt-1 bg-green-50 text-green-500 p-2 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+             </div>
+             <div>
+                <b class="text-gray-900 block mb-1">Smart Check-ins</b>
+                <p class="text-sm text-gray-600 leading-relaxed">Automated wellness checks and mood tracking between sessions.</p>
+             </div>
+          </li>
+          <li class="flex gap-4 items-start">
+             <div class="mt-1 bg-purple-50 text-purple-500 p-2 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+             </div>
+             <div>
+                <b class="text-gray-900 block mb-1">Progress Insights</b>
+                <p class="text-sm text-gray-600 leading-relaxed">Real-time patient progress data to inform your treatment plans.</p>
+             </div>
+          </li>
+        </ul>
+        <button class="mt-10 text-white font-semibold transition hover:opacity-90 whitespace-nowrap" style="background: linear-gradient(180.02deg, #37318A 21.5%, #574EBD 99.98%); width: 286px; height: 56px; border-radius: 102.82px; padding: 10px 66px;">
+          Join Beta Program
+        </button>
+      </div>
+
+      <div class="flex justify-center relative">
+         <div class="absolute w-full h-full bg-orange-100 rounded-full blur-3xl opacity-50 translate-y-10"></div>
+        <img src="/assets/img3.png" alt="App Interface" class="relative w-80 md:w-[25rem] z-10 drop-shadow-2xl" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white text-black py-32 px-6 md:px-24 relative overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-full h-64 bg-gray-50 rounded-t-[50%] scale-x-150 translate-y-32 -z-0"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <div class="inline-block px-3 py-1 text-xs font-semibold bg-blue-50 rounded-full mb-4" style="color: #655FB0;">
+           <img src="/assets/Frame.png" alt="" class="w-4 h-4 inline-block mr-1" /> Empathy-Driven Technology
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Why <span style="color: #655FB0;">Mindlight.ai?</span>
+        </h2>
+        <p class="text-gray-500 mt-4 max-w-lg mx-auto">
+          We're not just building tools, we're crafting a compassionate ecosystem that honors the sacred work of therapy.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="relative">
+          <img src="/assets/img4.png" alt="Hands holding heart" class="rounded-[2.5rem] shadow-lg w-full object-cover h-96" />
+        </div>
+
+        <div class="space-y-6 h-96 overflow-y-auto pr-2 scrollbar-thin">
+          <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+            <h3 class="text-2xl font-bold mb-2" style="color: #655FB0;">100% Compliant</h3>
+            <p class="font-semibold text-gray-900 mb-2">Compliant Privacy First</p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              HIPAA and GDPR compliant infrastructure with end-to-end encryption. Your patient data is always secure and never used for AI training.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+            <h3 class="text-2xl font-bold mb-2" style="color: #655FB0;">Many <span class="text-gray-400 text-lg font-normal">Therapist</span></h3>
+            <p class="font-semibold text-gray-900 mb-2">Clinically Validated</p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Built in partnership with licensed therapists and backed by research in therapeutic outcomes and AI safety.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+            <h3 class="text-2xl font-bold mb-2" style="color: #655FB0;">95% <span class="text-gray-400 text-lg font-normal">Satisfaction</span></h3>
+            <p class="font-semibold text-gray-900 mb-2">Human-Centred</p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              AI augments your expertise—never replaces it. We believe in empowering clinicians, not automating empathy.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+            <h3 class="text-2xl font-bold mb-2" style="color: #655FB0;">50% <span class="text-gray-400 text-lg font-normal">Time Saved</span></h3>
+            <p class="font-semibold text-gray-900 mb-2">Evidence-Based</p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Every feature is grounded in proven therapeutic modalities like CBT, DBT, and person-centered approaches.
+            </p>
+          </div>
+
+          <button class="mt-4 text-white font-semibold transition hover:opacity-90 whitespace-nowrap" style="background: linear-gradient(180.02deg, #37318A 21.5%, #574EBD 99.98%); width: 286px; height: 56px; border-radius: 102.82px; padding: 10px 66px;">
+            Join Beta Program
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#191732] text-white py-20 px-6 md:px-24 border-t border-gray-800">
+    <div class="grid md:grid-cols-4 gap-8 md:gap-12 max-w-7xl mx-auto text-sm items-start">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+           <img src="/assets/img_logo.jpg" alt="Mindlight Logo" class="w-3 h-3 rounded-full" />
+           <h4 class="text-lg font-bold">mindlight.ai</h4>
+        </div>
+        <p class="text-gray-400 leading-relaxed mb-6">
+          Making mental health support accessible, reliable and effective through the power of AI.
+        </p>
+        <div class="flex gap-4">
+           <a href="#" class="text-gray-400 hover:text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+           <a href="#" class="text-gray-400 hover:text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+           <a href="#" class="text-gray-400 hover:text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+           <a href="#" class="text-gray-400 hover:text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Company</h4>
+        <ul class="space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-purple-400 transition">About Us</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Careers</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Press</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Resources</h4>
+        <ul class="space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-purple-400 transition">Help Center</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Mental Health Library</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Client Co-pilot</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">API Documentation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Legal</h4>
+        <ul class="space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-purple-400 transition">Terms & Service</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">HIPAA Compliance</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Cookie Policy</a></li>
+          <li><a href="#" class="hover:text-purple-400 transition">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-16 pt-8 text-center text-gray-500 text-xs">
+      © 2025 mindlight.ai. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>
