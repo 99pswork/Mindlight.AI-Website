@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mindlight.AI | Mental Health Care Innovation</title>
+    <style>
+      :root {
+        --primary: #ecd2bd;
+        --secondary: #d1a78f; /* A slightly darker shade for contrast */
+        --dark: #5a4b41; /* A dark brown that complements the primary */
+        --light: #faf5f0; /* A very light beige for backgrounds */
+        --accent: #a67b5b; /* A warm brown accent */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--dark);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+      }
+
+      .logo-img {
+        height: 40px; /* Adjust based on your logo size */
+        margin-right: 10px;
+        /* You might need these depending on your logo */
+        width: auto;
+        object-fit: contain;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .logo-icon {
+        margin-right: 10px;
+        font-size: 1.8rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .cta-button {
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      section {
+        padding: 4rem 1rem;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 6rem 1rem 8rem;
+        background: url("/api/placeholder/1200/600") no-repeat center center;
+        background-size: cover;
+        position: relative;
+        color: white;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #271f18;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #666;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .how-it-works {
+        background-color: #f0f2fa;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .step-number {
+        background-color: var(--primary);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .testimonials {
+        background-color: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background-color: var(--light);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin-right: 1rem;
+        overflow: hidden;
+      }
+
+      .pricing {
+        background: linear-gradient(135deg, #f6f9fe, #edf1fa);
+      }
+
+      .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 3rem 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card.highlighted {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 2px solid var(--primary);
+      }
+
+      .pricing-card.highlighted::before {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 1.5rem 0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .pricing-features {
+        list-style: none;
+        margin: 2rem 0;
+      }
+
+      .pricing-features li {
+        margin-bottom: 0.8rem;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 4rem 1rem 2rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .pricing-card.highlighted {
+          transform: scale(1);
+        }
+      }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="/logo.png" alt="Mindlight.AI Logo" class="logo-img" />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#features">Features</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="index.html#testimonials">Testimonials</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="tnc.html">Terms and Conditions</a>
+
+          <!-- <a href="#pricing">Pricing</a> -->
+        </div>
+        <a href="#contact" class="cta-button">Get Started</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        
+        <div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 40px;">
+  
+          <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <img src="/public/appstore.png" alt="appstore_logo" style="width: 150px; height: auto; margin-bottom: 10px;">
+            <a href="https://testflight.apple.com/join/cnjb7uND" 
+               style="text-decoration: none; color: white; background-color: #0070f3; padding: 8px 20px; border-radius: 8px; font-weight: 500; font-family: Arial, sans-serif; transition: background-color 0.3s;">
+              Download
+            </a>
+          </div>
+        
+          <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <img src="/public/playstore.png" alt="playstore_logo" style="width: 150px; height: auto; margin-bottom: 10px;">
+            <a href="https://drive.google.com/file/d/1UQiW6QXR6j6rNoqeN9NG9PxfQywS6QZq/view" 
+               style="text-decoration: none; color: white; background-color: #34a853; padding: 8px 20px; border-radius: 8px; font-weight: 500; font-family: Arial, sans-serif; transition: background-color 0.3s;">
+              Download
+            </a>
+          </div>
+        
+        </div>
+        
+
+        
+        <!-- <p>Mindlight.AI combines advanced artificial intelligence with evidence-based therapeutic approaches to provide accessible mental health support whenever you need it.</p> -->
+        <!-- <a href="#contact" class="cta-button">Try For Free</a> -->
+      </div>
+    </section>
+
+    <section id="features">
+        <h2 class="section-title">Why Choose Mindlight.AI</h2>
+        <p class="section-subtitle">Our platform offers unique benefits that traditional therapy cannot match</p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Therapy</h3>
+                <p>Our advanced AI understands context, emotions, and provides personalized therapeutic support based on your unique needs.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Complete Privacy</h3>
+                <p>All conversations are encrypted and confidential. Your data is never sold or shared with third parties.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>24/7 Availability</h3>
+                <p>Get support anytime, anywhere. No appointments needed, no waiting lists, and no time constraints.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>Monitor your mental wellness journey with detailed insights, mood tracking, and personalized recommendations.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Affordable Care</h3>
+                <p>Access quality mental health support at a fraction of the cost of traditional therapy sessions.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Human Oversight</h3>
+                <p>Our AI is supervised by licensed therapists who review critical cases and ensure quality of care.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <h2 class="section-title">How Mindlight.AI Works</h2>
+        <p class="section-subtitle">Getting started is simple and takes less than 5 minutes</p>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Sign Up</h3>
+                <p>Create your secure account and complete a brief assessment to help us understand your needs.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Connect with AI</h3>
+                <p>Start chatting with your AI therapist through our mobile app or web platform anytime.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Receive Support</h3>
+                <p>Get personalized guidance, coping strategies, and emotional support based on evidence-based approaches.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Track Progress</h3>
+                <p>Monitor your improvement over time with insights and adjust your therapeutic journey as needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">What Our Users Say</h2>
+        <p class="section-subtitle">Join thousands who have improved their mental wellbeing with Mindlight.AI</p>
+        
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Mindlight has been there for me at 3 AM when anxiety strikes and no one else is available. The responses are incredibly thoughtful and helpful - sometimes I forget I'm talking to an AI."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="/api/placeholder/50/50" alt="User avatar">
+                    </div>
+                    <div>
+                        <strong>Sarah K.</strong>
+                        <p>Using Mindlight for 8 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"As someone who couldn't afford traditional therapy, Mindlight.AI has been a lifesaver. The daily check-ins and coping techniques have helped me manage my depression in ways I never thought possible."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="/api/placeholder/50/50" alt="User avatar">
+                    </div>
+                    <div>
+                        <strong>Marcus T.</strong>
+                        <p>Using Mindlight for 1 year</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I was skeptical about AI therapy, but the personalization is impressive. Mindlight remembers my triggers, suggests exercises that work for me, and has genuinely helped improve my relationships."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="/api/placeholder/50/50" alt="User avatar">
+                    </div>
+                    <div>
+                        <strong>Jessica M.</strong>
+                        <p>Using Mindlight for 6 months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-subtitle">Choose the plan that fits your needs</p>
+        
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <div class="price">$9.99<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>Unlimited AI chat support</li>
+                    <li>Basic mood tracking</li>
+                    <li>Weekly progress reports</li>
+                    <li>Guided meditations</li>
+                    <li>Mobile & web access</li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+            
+            <div class="pricing-card highlighted">
+                <h3>Premium</h3>
+                <div class="price">$19.99<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>Everything in Basic</li>
+                    <li>Priority response times</li>
+                    <li>Advanced analytics & insights</li>
+                    <li>Specialized therapeutic modules</li>
+                    <li>Monthly check-in with human therapist</li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <div class="price">Custom<span> pricing</span></div>
+                <ul class="pricing-features">
+                    <li>Everything in Premium</li>
+                    <li>Custom integration</li>
+                    <li>Employee wellness dashboard</li>
+                    <li>Dedicated account manager</li>
+                    <li>Regular review with clinical team</li>
+                </ul>
+                <a href="#" class="cta-button">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Ready to Transform Your Mental Health?</h2>
+        <p class="section-subtitle">Join thousands who have found relief and growth with Mindlight.AI</p>
+         <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="cta-button">Start Free Trial</a>
+        </div> 
+    </section> 
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Mindlight.AI</h3>
+          <p>
+            Making mental health support accessible, affordable, and effective
+            through the power of AI.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-icon">fb</a>
+            <a href="#" class="social-icon">tw</a>
+            <a href="#" class="social-icon">ig</a>
+            <a href="#" class="social-icon">li</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Mental Health Library</a></li>
+            <li><a href="#">Therapist Partnership</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">HIPAA Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 Mindlight.AI. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

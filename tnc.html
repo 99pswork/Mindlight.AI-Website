@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mindlight.AI | Mental Health Care Innovation</title>
+    <style>
+      :root {
+        --primary: #ecd2bd;
+        --secondary: #d1a78f; /* A slightly darker shade for contrast */
+        --dark: #5a4b41; /* A dark brown that complements the primary */
+        --light: #faf5f0; /* A very light beige for backgrounds */
+        --accent: #a67b5b; /* A warm brown accent */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--dark);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+      }
+
+      .logo-img {
+        height: 40px; /* Adjust based on your logo size */
+        margin-right: 10px;
+        /* You might need these depending on your logo */
+        width: auto;
+        object-fit: contain;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .logo-icon {
+        margin-right: 10px;
+        font-size: 1.8rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .cta-button {
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      section {
+        padding: 4rem 1rem;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 6rem 1rem 8rem;
+        background: url("/api/placeholder/1200/600") no-repeat center center;
+        background-size: cover;
+        position: relative;
+        color: white;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #271f18;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #666;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .how-it-works {
+        background-color: #f0f2fa;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .step-number {
+        background-color: var(--primary);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .testimonials {
+        background-color: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background-color: var(--light);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin-right: 1rem;
+        overflow: hidden;
+      }
+
+      .pricing {
+        background: linear-gradient(135deg, #f6f9fe, #edf1fa);
+      }
+
+      .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 3rem 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card.highlighted {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 2px solid var(--primary);
+      }
+
+      .pricing-card.highlighted::before {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 1.5rem 0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .pricing-features {
+        list-style: none;
+        margin: 2rem 0;
+      }
+
+      .pricing-features li {
+        margin-bottom: 0.8rem;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 4rem 1rem 2rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .pricing-card.highlighted {
+          transform: scale(1);
+        }
+      }
+
+      .container {
+        max-width: 64rem; /* max-w-4xl */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      hr {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem; /* my-4 */
+        border: none;
+        border-top: 1px solid #ccc;
+      }
+
+      h1 {
+        font-size: 1.875rem; /* text-3xl */
+        font-weight: 700; /* font-bold */
+        margin-bottom: 0.5rem; /* mb-2 */
+      }
+
+      h2 {
+        font-size: 1.5rem; /* text-2xl */
+        font-weight: 600; /* font-semibold */
+        margin-bottom: 0.5rem; /* mb-4 */
+      }
+
+      p {
+        margin-bottom: 0.5rem; /* mb-4 */
+        font-size: 1rem;
+        color: #1f2937; /* text-gray-800 */
+      }
+
+      .small-text {
+        font-size: 0.875rem; /* text-sm */
+        color: #4b5563; /* text-gray-600 */
+      }
+
+      .important {
+        font-weight: 600; /* font-semibold */
+        color: #dc2626; /* text-red-600 */
+      }
+
+      section {
+        margin-bottom: 0.5rem; /* mb-8 */
+      }
+    </style>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="/logo.png" alt="Mindlight.AI Logo" class="logo-img" />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#features">Features</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="index.html#testimonials">Testimonials</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="tnc.html">Terms and Conditions</a>
+
+          <!-- <a href="#pricing">Pricing</a> -->
+        </div>
+        <a href="#contact" class="cta-button">Get Started</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div className="max-w-4xl mx-auto px-4 py-8 text-left text-gray-800">
+        <hr className="my-4" />
+
+        <h1 className="text-3xl font-bold mb-2">
+          MINDLIGHT.AI TERMS AND CONDITIONS
+        </h1>
+        <p className="text-sm text-gray-600">
+          <strong>Effective Date:</strong> July 23, 2025
+        </p>
+        <p className="text-sm text-gray-600">
+          <strong>Last Updated:</strong> July 23, 2025
+        </p>
+
+        <hr className="my-4" />
+
+        <section
+          id="introduction"
+          aria-labelledby="terms-intro"
+          className="mb-12"
+        >
+          <h2 id="terms-intro" className="text-2xl font-semibold mb-4">
+            1. Introduction and Acceptance
+          </h2>
+          <p className="mb-4">
+            Welcome to Mindlight.ai ("Company," "we," "our," or "us"). These
+            Terms and Conditions ("Terms," "Agreement") govern your access to
+            and use of our AI-powered mental health tools, agents, website,
+            mobile applications, and related services (collectively, the
+            "Services").
+          </p>
+          <p className="font-semibold text-red-600 mb-4">
+            IMPORTANT NOTICE: BY ACCESSING OR USING OUR SERVICES, YOU AGREE TO
+            BE BOUND BY THESE TERMS AND OUR PRIVACY POLICY. IF YOU DO NOT AGREE
+            TO THESE TERMS, DO NOT USE OUR SERVICES.
+          </p>
+          <div className="mb-4">
+            <h3 className="text-lg font-medium mb-2">Critical Disclaimers:</h3>
+            <ul className="list-disc list-inside space-y-1 text-red-600">
+              <li>
+                <strong>Not Medical Treatment:</strong> Our Services are
+                AI-based tools and NOT a replacement for professional medical
+                care, diagnosis, or treatment
+              </li>
+              <li>
+                <strong>Emergency Services:</strong> Our Services are NOT
+                designed for crisis or emergency situations
+              </li>
+              <li>
+                <strong>No Guarantees:</strong> We cannot guarantee specific
+                outcomes or results from using our Services
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="description-of-services"
+          aria-labelledby="services-description"
+          className="mb-12"
+        >
+          <h2 id="services-description" className="text-2xl font-semibold mb-4">
+            2. Description of Services
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              2.1 AI Mental Health Tools
+            </h3>
+            <p className="mb-2">
+              Mindlight.ai provides artificial intelligence-powered tools and
+              agents designed to support mental health and wellness, including:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                AI chatbots and conversational agents for emotional support
+              </li>
+              <li>Mood tracking and mental wellness monitoring tools</li>
+              <li>Personalized recommendations and coping strategies</li>
+              <li>Educational content and self-help resources</li>
+              <li>Professional tools for therapists and practitioners</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">2.2 Target Users</h3>
+            <p className="mb-2">Our Services are intended for:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Individual users seeking mental health support tools</li>
+              <li>Licensed mental health professionals and practitioners</li>
+              <li>Healthcare organizations and institutions</li>
+              <li>Researchers and students (with appropriate permissions)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">2.3 AI Limitations</h3>
+            <p className="mb-2">
+              You acknowledge and understand that our AI tools:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                Are not sentient and do not have human consciousness or emotions
+              </li>
+              <li>
+                May provide responses that are not always accurate or
+                appropriate
+              </li>
+              <li>
+                Cannot replace human judgment or professional clinical
+                assessment
+              </li>
+              <li>May experience technical limitations, errors, or downtime</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="medical-disclaimer"
+          aria-labelledby="medical-health-disclaimer"
+          className="mb-12"
+        >
+          <h2
+            id="medical-health-disclaimer"
+            className="text-2xl font-semibold mb-4"
+          >
+            3. Medical and Health Disclaimers
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              3.1 Not Medical Treatment
+            </h3>
+            <p className="font-semibold text-red-600 mb-2">
+              CRITICAL NOTICE: Our Services are NOT medical devices, healthcare
+              services, or medical treatment. We are NOT healthcare providers.
+              Our AI tools and agents:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Do not provide medical advice, diagnosis, or treatment</li>
+              <li>
+                Are not intended to cure, treat, or prevent any medical
+                condition
+              </li>
+              <li>Cannot replace professional medical care or therapy</li>
+              <li>Should not be relied upon for medical decisions</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              3.2 Emergency Disclaimer
+            </h3>
+            <p className="font-semibold text-red-600 mb-2">
+              DO NOT USE FOR EMERGENCIES: Our Services are NOT designed for
+              crisis or emergency situations. If you are experiencing:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Thoughts of suicide or self-harm</li>
+              <li>Thoughts of harming others</li>
+              <li>Medical emergencies</li>
+              <li>Severe mental health crises</li>
+            </ul>
+            <p className="mt-3">IMMEDIATELY CONTACT:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Emergency services (911 in the US)</li>
+              <li>National Suicide Prevention Lifeline: 988</li>
+              <li>Crisis Text Line: Text HOME to 741741</li>
+              <li>Your local emergency mental health services</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              3.3 Professional Care Recommendation
+            </h3>
+            <p className="mb-2">We strongly encourage you to:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Consult with licensed mental health professionals</li>
+              <li>Continue any existing therapy or treatment</li>
+              <li>Discuss our Services with your healthcare provider</li>
+              <li>Seek professional help for serious mental health concerns</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">
+              3.4 No Doctor-Patient Relationship
+            </h3>
+            <p>
+              Use of our Services does not create a doctor-patient,
+              therapist-client, or any other professional healthcare
+              relationship between you and Mindlight.ai or any of our employees,
+              contractors, or AI systems.
+            </p>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="user-eligibility"
+          aria-labelledby="user-eligibility-heading"
+          className="mb-12"
+        >
+          <h2
+            id="user-eligibility-heading"
+            className="text-2xl font-semibold mb-4"
+          >
+            4. User Eligibility and Accounts
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">4.1 Age Requirements</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                <strong>Minimum Age:</strong> 13 years old (or minimum digital
+                consent age in your jurisdiction)
+              </li>
+              <li>
+                <strong>Users 13–17:</strong> May require parental consent per
+                local laws
+              </li>
+              <li>
+                <strong>Adult Users:</strong> Must be 18+ for full access to all
+                features
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              4.2 Account Registration
+            </h3>
+            <p className="mb-2">To use certain features, you must:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Provide accurate and complete information</li>
+              <li>Maintain the security of your account credentials</li>
+              <li>Notify us immediately of unauthorized access</li>
+              <li>
+                Accept responsibility for all activities under your account
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">4.3 Professional Users</h3>
+            <p className="mb-2">Mental health professionals must:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Provide valid licensing information</li>
+              <li>Maintain current professional credentials</li>
+              <li>Comply with their professional ethical obligations</li>
+              <li>
+                Use Services in accordance with applicable professional
+                standards
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="user-responsibilities"
+          aria-labelledby="user-responsibilities-heading"
+          className="mb-12"
+        >
+          <h2
+            id="user-responsibilities-heading"
+            className="text-2xl font-semibold mb-4"
+          >
+            5. User Responsibilities and Conduct
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">5.1 Appropriate Use</h3>
+            <p className="mb-2">
+              You agree to use our Services only for lawful purposes and in
+              accordance with these Terms. You will <strong>NOT</strong>:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Use Services for any illegal or unauthorized purpose</li>
+              <li>Violate any applicable laws or regulations</li>
+              <li>Infringe on intellectual property rights</li>
+              <li>Transmit harmful, threatening, or offensive content</li>
+              <li>Attempt to gain unauthorized access to our systems</li>
+              <li>
+                Interfere with the security or proper functioning of Services
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">5.2 Content Guidelines</h3>
+            <p className="mb-2">
+              When using our Services, you must not submit or share:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Illegal, harmful, or threatening content</li>
+              <li>Content that violates others' rights</li>
+              <li>Spam, malware, or malicious code</li>
+              <li>False or misleading information</li>
+              <li>Content that encourages self-harm or violence</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">5.3 Mental Health Data</h3>
+            <p className="mb-2">You understand that:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Mental health information is sensitive personal data</li>
+              <li>You control what information you choose to share</li>
+              <li>Shared information helps improve AI personalization</li>
+              <li>
+                You can delete your data at any time (subject to legal
+                limitations)
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="intellectual-property"
+          aria-labelledby="intellectual-property-heading"
+          className="mb-12"
+        >
+          <h2
+            id="intellectual-property-heading"
+            className="text-2xl font-semibold mb-4"
+          >
+            6. Intellectual Property Rights
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              6.1 Our Intellectual Property
+            </h3>
+            <p className="mb-2">
+              All content, features, and functionality of our Services,
+              including but not limited to:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Software, algorithms, and AI models</li>
+              <li>Text, graphics, logos, and designs</li>
+              <li>Trademarks and trade names</li>
+              <li>Proprietary methodologies and processes</li>
+            </ul>
+            <p className="mt-2">
+              Are owned by Mindlight.ai and protected by intellectual property
+              laws.
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              6.2 Limited License to You
+            </h3>
+            <p className="mb-2">
+              We grant you a limited, non-exclusive, non-transferable, revocable
+              license to:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                Access and use our Services for personal, non-commercial use
+              </li>
+              <li>Download and use our mobile applications on your devices</li>
+              <li>Create an account and use associated features</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              6.3 User-Generated Content
+            </h3>
+            <p className="mb-2">
+              You retain ownership of content you create, but by using our
+              Services, you grant us:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                A non-exclusive license to use your content to provide Services
+              </li>
+              <li>Permission to analyze your data to improve AI performance</li>
+              <li>
+                Right to create de-identified, aggregated insights for research
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">
+              6.4 Feedback and Suggestions
+            </h3>
+            <p>
+              Any feedback, suggestions, or ideas you provide become our
+              property and may be used without compensation or attribution.
+            </p>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="limitation-of-liability"
+          aria-labelledby="liability-heading"
+          className="mb-12"
+        >
+          <h2 id="liability-heading" className="text-2xl font-semibold mb-4">
+            7. Limitation of Liability and Disclaimers
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              7.1 Disclaimer of Warranties
+            </h3>
+            <p className="mb-2 font-semibold text-red-600">
+              SERVICES PROVIDED "AS IS":
+            </p>
+            <p className="mb-2">
+              Our Services are provided on an "as is" and "as available" basis.
+              TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL
+              WARRANTIES, INCLUDING:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Merchantability and fitness for a particular purpose</li>
+              <li>Non-infringement of third-party rights</li>
+              <li>Uninterrupted or error-free operation</li>
+              <li>Accuracy, reliability, or completeness of content</li>
+              <li>Security or privacy of data transmission</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              7.2 Limitation of Liability
+            </h3>
+            <p className="mb-2 font-semibold text-red-600">
+              MAXIMUM LIABILITY LIMITED:
+            </p>
+            <p className="mb-2">
+              TO THE FULLEST EXTENT PERMITTED BY LAW, OUR TOTAL LIABILITY FOR
+              ANY CLAIMS RELATED TO OUR SERVICES IS LIMITED TO:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                The amount you paid us in the 12 months preceding the claim, OR
+              </li>
+              <li>$100 (whichever is greater)</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              7.3 Exclusion of Damages
+            </h3>
+            <p className="mb-2 font-semibold text-red-600">
+              WE SHALL NOT BE LIABLE FOR:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Indirect, incidental, or consequential damages</li>
+              <li>Lost profits, data, or business opportunities</li>
+              <li>Emotional distress or mental anguish</li>
+              <li>Damages resulting from third-party content or services</li>
+              <li>Any damages exceeding our liability limitation</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">
+              7.4 User Assumption of Risk
+            </h3>
+            <p className="mb-2">
+              You acknowledge and assume all risks associated with:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Using AI-based mental health tools</li>
+              <li>Sharing personal and mental health information</li>
+              <li>Relying on AI-generated content or recommendations</li>
+              <li>Any decisions you make based on our Services</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="indemnification"
+          aria-labelledby="indemnification-heading"
+          className="mb-12"
+        >
+          <h2
+            id="indemnification-heading"
+            className="text-2xl font-semibold mb-4"
+          >
+            8. Indemnification
+          </h2>
+          <p className="mb-2">
+            You agree to defend, indemnify, and hold harmless Mindlight.ai, its
+            officers, directors, employees, agents, and contractors from any
+            claims, damages, losses, or expenses (including attorney fees)
+            arising from:
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Your use of our Services</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of third-party rights</li>
+            <li>Your content or information shared through Services</li>
+            <li>Any decisions or actions you take based on our Services</li>
+          </ul>
+        </section>
+
+        <hr className="my-4" />
+
+        <section id="ai-terms" aria-labelledby="ai-terms-heading">
+          <h2 id="ai-terms-heading" className="text-2xl font-semibold mb-4">
+            9. AI-Specific Terms and Limitations
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              9.1 AI Technology Acknowledgment
+            </h3>
+            <p className="mb-2">You understand that our AI systems:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Use machine learning algorithms that may evolve over time</li>
+              <li>Are trained on large datasets that may contain biases</li>
+              <li>May produce unexpected or inconsistent responses</li>
+              <li>
+                Cannot guarantee accuracy or appropriateness of all outputs
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              9.2 AI Output Disclaimer
+            </h3>
+            <p className="mb-2 font-semibold text-red-600">
+              NO RESPONSIBILITY FOR AI OUTPUTS:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Accuracy of AI-generated content or recommendations</li>
+              <li>
+                Appropriateness of AI responses to your specific situation
+              </li>
+              <li>Any reliance you place on AI-generated information</li>
+              <li>Decisions you make based on AI interactions</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">9.3 Human Oversight</h3>
+            <p className="mb-2">While our AI tools are sophisticated, they:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Are not a substitute for human professional judgment</li>
+              <li>Should be used as supplementary tools only</li>
+              <li>May require human interpretation and validation</li>
+              <li>Cannot replace licensed professional services</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">9.4 AI Safety Measures</h3>
+            <p className="mb-2">We implement reasonable measures to:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Monitor AI outputs for harmful content</li>
+              <li>Continuously improve AI safety and reliability</li>
+              <li>Provide clear labeling of AI-generated content</li>
+              <li>Maintain human oversight of AI systems</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="privacy-protection"
+          aria-labelledby="privacy-protection-heading"
+          className="mb-12"
+        >
+          <h2
+            id="privacy-protection-heading"
+            className="text-2xl font-semibold mb-4"
+          >
+            10. Privacy and Data Protection
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">10.1 Privacy Policy</h3>
+            <p>
+              Your privacy is important to us. Our collection, use, and
+              protection of your personal information is governed by our{" "}
+              <a href="/privacy-policy" className="text-blue-600 underline">
+                Privacy Policy
+              </a>
+              , which is incorporated into these Terms by reference.
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              10.2 Data Processing Consent
+            </h3>
+            <p>By using our Services, you consent to:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                Collection and processing of your personal data as described in
+                our Privacy Policy
+              </li>
+              <li>Use of your data to improve AI performance and Services</li>
+              <li>
+                International transfer of data where necessary for service
+                provision
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">10.3 Data Security</h3>
+            <p>
+              While we implement appropriate security measures, you acknowledge
+              that:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>No system is completely secure</li>
+              <li>You share information at your own risk</li>
+              <li>We cannot guarantee absolute security of your data</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="subscription-payment"
+          aria-labelledby="subscription-heading"
+          className="mb-12"
+        >
+          <h2 id="subscription-heading" className="text-2xl font-semibold mb-4">
+            11. Subscription and Payment Terms
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              11.1 Subscription Services
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Automatic renewal unless cancelled</li>
+              <li>Pro-rated refunds only in specific circumstances</li>
+              <li>Price changes with advance notice</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              11.2 Payment Processing
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Payments processed by third-party providers</li>
+              <li>You authorize recurring charges for subscriptions</li>
+              <li>Refund requests subject to our refund policy</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">11.3 Free Trial Terms</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Limited duration and features</li>
+              <li>Automatic conversion to paid subscription</li>
+              <li>Cancellation rights before trial expires</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="termination"
+          aria-labelledby="termination-heading"
+          className="mb-12"
+        >
+          <h2 id="termination-heading" className="text-2xl font-semibold mb-4">
+            12. Termination
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              12.1 Termination by You
+            </h3>
+            <p>You may terminate your account at any time by:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Deleting your account through our Services</li>
+              <li>Contacting our support team</li>
+              <li>Ceasing use of our Services</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">12.2 Termination by Us</h3>
+            <p>We may suspend or terminate your access for:</p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Violation of these Terms</li>
+              <li>Illegal or harmful conduct</li>
+              <li>Non-payment of fees</li>
+              <li>Protecting user safety or our legal interests</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">
+              12.3 Effect of Termination
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Your access to Services will cease</li>
+              <li>Your data will be deleted per our Privacy Policy</li>
+              <li>Accrued obligations survive termination</li>
+              <li>These Terms remain in effect for surviving provisions</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section id="dispute-resolution" aria-labelledby="dispute-heading">
+          <h2 id="dispute-heading" className="text-2xl font-semibold mb-4">
+            13. Dispute Resolution
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">13.1 Governing Law</h3>
+            <p>
+              These Terms are governed primarily by the laws of California, USA
+              without regard to conflict of law principles. Applicable laws of
+              India may also apply.
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              13.2 Arbitration Agreement
+            </h3>
+            <p>
+              <strong>BINDING ARBITRATION:</strong> Any disputes arising from
+              these Terms or use of our Services will be resolved through
+              binding arbitration, except for:
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Small claims court actions</li>
+              <li>Intellectual property disputes</li>
+              <li>Emergency injunctive relief</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              13.3 Class Action Waiver
+            </h3>
+            <p>
+              <strong>NO CLASS ACTIONS:</strong> You agree that disputes will be
+              resolved on an individual basis and waive any right to participate
+              in class action lawsuits.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">
+              13.4 Informal Resolution
+            </h3>
+            <p>
+              Before formal dispute resolution, we encourage contacting us at{"
+              "}
+              <a
+                href="mailto:legal@mindlight.ai"
+                className="text-blue-600 underline"
+              >
+                legal@mindlight.ai </a
+              >{" "} to resolve issues informally.
+            </p>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="general-provisions"
+          aria-labelledby="general-provisions-heading"
+          className="mb-12"
+        >
+          <h2
+            id="general-provisions-heading"
+            className="text-2xl font-semibold mb-4"
+          >
+            14. General Provisions
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">
+              14.1 Modifications to Terms
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                We may update these Terms with advance notice for material
+                changes
+              </li>
+              <li>Continued use constitutes acceptance</li>
+              <li>Previous versions are archived for reference</li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">14.2 Severability</h3>
+            <p>
+              If any provision is found invalid or unenforceable, the remainder
+              of these Terms remain in full force and effect.
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">14.3 Entire Agreement</h3>
+            <p>
+              These Terms, together with our Privacy Policy, constitute the
+              entire agreement between you and Mindlight.ai regarding use of our
+              Services.
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">14.4 Assignment</h3>
+            <p>
+              We may assign these Terms without notice. You may not assign your
+              rights or obligations without our written consent.
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-medium mb-2">14.5 Waiver</h3>
+            <p>
+              Our failure to enforce any provision does not constitute a waiver
+              of that provision or any other provision.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-2">14.6 Force Majeure</h3>
+            <p>
+              We are not liable for delays or failures due to circumstances
+              beyond our reasonable control.
+            </p>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+
+        <section
+          id="contact"
+          aria-labelledby="contact-heading"
+          className="mb-12"
+        >
+          <h2 id="contact-heading" className="text-2xl font-semibold mb-4">
+            15. Contact Information
+          </h2>
+          <p className="mb-2">
+            For questions about these Terms, contact us at:
+          </p>
+          <ul className="list-none space-y-1">
+            <li>
+              <strong>Email:</strong>{" "}
+              <a
+                href="mailto:legal@mindlight.ai"
+                className="text-blue-600 underline"
+              >
+                legal@mindlight.ai
+              </a>
+            </li>
+            <li><strong>Mail:</strong> San Francisco, CA</li>
+            <li>
+              <strong>Phone:</strong> {/* Phone number can be added here */}
+            </li>
+            <li>
+              <strong>Support:</strong>{" "}
+              <a
+                href="mailto:support@mindlight.ai"
+                className="text-blue-600 underline"
+              >
+                support@mindlight.ai
+              </a>
+            </li>
+            <li>
+              <strong>Privacy:</strong>{" "}
+              <a
+                href="mailto:privacy@mindlight.ai"
+                className="text-blue-600 underline"
+              >
+                privacy@mindlight.ai
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <hr className="my-4" />
+
+        <hr className="my-4" />
+
+        <section id="effective-date" aria-labelledby="effective-date-heading">
+          <h2
+            id="effective-date-heading"
+            className="text-2xl font-semibold mb-4"
+          >
+            16. Effective Date and Changes
+          </h2>
+          <p className="mb-4">
+            These Terms are effective as of the date first posted. We will
+            notify users of material changes through:
+          </p>
+          <ul className="list-disc list-inside space-y-1 mb-4">
+            <li>Email notification</li>
+            <li>In-service notifications</li>
+            <li>Updated posting with new effective date</li>
+          </ul>
+          <p className="mb-4">
+            By continuing to use our Services after changes take effect, you
+            agree to the updated Terms.
+          </p>
+
+          <p className="font-semibold text-gray-700 mt-4">
+            ACKNOWLEDGMENT: BY USING OUR SERVICES, YOU ACKNOWLEDGE THAT YOU HAVE
+            READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS AND
+            CONDITIONS.
+          </p>
+
+          <div className="text-sm text-gray-600 mt-6">
+            <p><strong>Last Updated:</strong> July 23, 2025</p>
+            <p><strong>Version:</strong> 1.0</p>
+            <p>
+              For the most current version of these Terms, please visit:{" "}
+              <a href="[URL]" className="text-blue-600 underline"> [URL] </a>
+            </p>
+          </div>
+        </section>
+
+        <hr className="my-4" />
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Mindlight.AI</h3>
+          <p>
+            Making mental health support accessible, affordable, and effective
+            through the power of AI.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-icon">fb</a>
+            <a href="#" class="social-icon">tw</a>
+            <a href="#" class="social-icon">ig</a>
+            <a href="#" class="social-icon">li</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Mental Health Library</a></li>
+            <li><a href="#">Therapist Partnership</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">HIPAA Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 Mindlight.AI. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
